@@ -1,9 +1,11 @@
 import "./index.scss";
-const Cart = () => {
+const Cart = ({ id, price, old_price, title, text, skit, img }) => {
   return (
     <>
       <section>
-        <div className="cart_w"></div>
+        <div className="cart_w">
+          <img src={img} alt="" />
+        </div>
       </section>
     </>
   );
