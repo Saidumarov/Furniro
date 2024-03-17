@@ -7,7 +7,70 @@
       "title": "Syltherine",
       "text": "Stylish cafe chair",
       "skit": 30,
-      "img": "../src/assets/image 1.png"
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/image%201.png?alt=media&token=6e8b6dba-64a0-4450-9870-6c5f6a0e9271"
+    },
+    {
+      "id": 2,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 50,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/image%202.png?alt=media&token=8271cfa5-1006-4699-b5ae-41a0221e9987"
+    },
+    {
+      "id": 3,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 0,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/image%203.png?alt=media&token=c1e3beaa-8eba-4ec0-93a5-2dfb94243617"
+    },
+    {
+      "id": 4,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 30,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/Images.png?alt=media&token=a6870c36-fc5d-47e6-b4f7-50fcf65d4cc3"
+    },
+    {
+      "id": 5,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 0,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/Images%20(1).png?alt=media&token=618a39fe-a57f-4103-8372-83a95dffe305 "
+    },
+    {
+      "id": 6,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 30,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/Images%20(2).png?alt=media&token=7eaa8794-adc1-44aa-af95-515397993483 "
+    },
+    {
+      "id": 7,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 0,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/Images%20(3).png?alt=media&token=258ba887-126f-46e9-afa8-665bb8df8182 "
+    },
+    {
+      "id": 8,
+      "price": "2.500.000",
+      "old_price": "3.500.00",
+      "title": "Syltherine",
+      "text": "Stylish cafe chair",
+      "skit": 30,
+      "img": "https://firebasestorage.googleapis.com/v0/b/uzum-29ec6.appspot.com/o/Images%20(4).png?alt=media&token=083d1a9a-8b17-4e38-a568-d1c5ae0d3ae2 "
     }
   ]
 }

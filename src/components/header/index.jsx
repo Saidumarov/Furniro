@@ -7,12 +7,39 @@ import shop from "../../assets/ant-design_shopping-cart-outlined.png";
 import { NavLink } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Headroom from "react-headroom";
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Header = () => {
   const [active, setactive] = useState(false);
+  const [length, setLength] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const shopl = JSON.parse(localStorage.getItem("shop"));
+      if (Array.isArray(shopl)) {
+        setLength(shopl.length);
+      }
+    }, 100);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
+
       <Headroom>
         <header>
           <div className="container">
@@ -42,7 +69,7 @@ const Header = () => {
                 <img src={search} alt="" />
                 <img src={like} alt="" className="like" />
                 <span className="cart">
-                  <span className="count">1</span>
+                  <span className="count"> {length} </span>
                   <img src={shop} alt="" />
                 </span>
                 <div className="menu" onClick={() => setactive(!active)}>

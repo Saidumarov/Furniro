@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Cart from "../cart";
 const Products = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       await axios.get("http://localhost:3000/data").then((res) => {
@@ -20,10 +20,11 @@ const Products = () => {
         <div className="container">
           <h2>Our Products</h2>
           <div className="products_w">
-            {data?.map((el, i) => (
+            {data?.slice(0.8)?.map((el, i) => (
               <Cart key={i} {...el} />
             ))}
           </div>
+          <button className="product_btn"> Show More</button>
         </div>
       </section>
     </>

@@ -3,7 +3,6 @@ header {
   height: 100px;
   background-color: #fff;
   font-family: Poppins;
-
   .header {
     width: 100%;
     height: 100%;
@@ -78,10 +77,15 @@ header {
           align-items: center;
           justify-content: center;
           cursor: pointer;
+          font-size: 13px;
         }
       }
     }
   }
+}
+.headroom-wrapper {
+  z-index: 5;
+  position: relative;
 }
 
 @media screen and (max-width: 875px) {
