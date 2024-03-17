@@ -1,0 +1,227 @@
+.furniture {
+  width: 100%;
+  margin-bottom: 100px;
+  p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 35px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .imgs_w {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .imgs_left {
+    width: 36%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+
+    img {
+      object-fit: cover;
+    }
+    .imgs_l {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-top: 20px;
+    }
+  }
+  .imgs_cen {
+    display: flex;
+    align-items: center;
+    margin: 0 20px 0 20px;
+  }
+  .imgs_right {
+    width: 38%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    .img_r1 {
+      width: 100%;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+    }
+    .imgs_r {
+      width: 100%;
+      display: flex;
+      align-items: start;
+      flex-wrap: wrap;
+
+      img:nth-child(2) {
+        margin-left: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1470px) {
+  .furniture {
+    .imgs_w {
+      .imgs_right {
+        width: 100%;
+        justify-content: center;
+        .img_r1 {
+          justify-content: center;
+          gap: 20px;
+          img {
+            width: 48%;
+          }
+        }
+        .imgs_r {
+          justify-content: space-between;
+          display: flex;
+          margin-top: 20px;
+          img {
+            width: 48%;
+          }
+          img:nth-child(2) {
+            margin-left: 0px;
+          }
+        }
+      }
+      .imgs_left {
+        width: 75%;
+        img:nth-child(2) {
+          width: 80%;
+          height: 310px;
+        }
+        img:nth-child(1) {
+          width: 18%;
+        }
+      }
+      .imgs_cen {
+        display: flex;
+        justify-content: left;
+        width: 40%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1250px) {
+  .furniture {
+    .imgs_w {
+      flex-wrap: wrap;
+      .imgs_left {
+        width: 55%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 985px) {
+  .furniture {
+    .imgs_w {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      .imgs_left {
+        width: auto;
+      }
+      .imgs_cen {
+        width: auto;
+      }
+      .imgs_right {
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .furniture {
+    .imgs_w {
+      .imgs_right {
+        width: 100%;
+        justify-content: center;
+        .img_r1 {
+          justify-content: center;
+          gap: 0px;
+        }
+      }
+    }
+  }
+  .furniture {
+    .imgs_w {
+      display: flex;
+      justify-content: space-between;
+      .imgs_left {
+        width: auto;
+        img:nth-child(1) {
+          width: 20%;
+        }
+        img:nth-child(2) {
+          width: 75%;
+        }
+        .imgs_l {
+          img:nth-child(1) {
+            width: 45%;
+          }
+          img:nth-child(2) {
+            width: 50%;
+          }
+        }
+      }
+      .imgs_cen {
+        width: auto;
+        width: 100%;
+        justify-content: center;
+        margin-top: 30px;
+        img {
+          width: 85%;
+          height: 400px;
+          object-fit: cover;
+        }
+      }
+      .imgs_right {
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 30px;
+        justify-content: space-between;
+        .img_r1 {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          img:nth-child(1) {
+            width: 48%;
+          }
+          img:nth-child(2) {
+            width: 48%;
+          }
+        }
+        .imgs_r {
+          flex-wrap: nowrap;
+          width: 100%;
+          justify-content: space-between;
+          img:nth-child(1) {
+            width: 48%;
+            margin: 0;
+          }
+          img:nth-child(2) {
+            width: 48%;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .furniture {
+    width: 1500px;
+    margin: 0 auto;
+  }
+}

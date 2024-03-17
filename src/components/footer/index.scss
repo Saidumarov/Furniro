@@ -1,0 +1,23 @@
+footer {
+  width: 100%;
+  background-color: red;
+  height: 500px;
+  .footer_w {
+    display: flex;
+    .footer_one {
+      width: 30%;
+    }
+    .footer_two {
+      width: 20%;
+    }
+    .footer_three {
+      width: 20%;
+    }
+    .footer_four {
+      width: 20%;
+    }
+    .footer_fief {
+      width: 20%;
+    }
+  }
+}

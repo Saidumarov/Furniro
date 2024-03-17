@@ -31,18 +31,21 @@ const Cart = ({ id, price, old_price, title, text, skit, img }) => {
   const addCart = (CartId, img, text, title, price, old_price, skit) => {
     let shop = JSON.parse(localStorage.getItem("shop")) || [];
     if (CartId) {
-      let obj = {
-        id: CartId,
-        img: img,
-        text: text,
-        title: title,
-        price: price,
-        old_price: old_price,
-        skit: skit,
-      };
-      const cards = [...shop, obj];
-      localStorage.setItem("shop", JSON.stringify(cards));
-      toast.success("Add Cart");
+      const itemIndex = shop.findIndex((item) => item.id === CartId);
+      if (itemIndex === -1) {
+        let obj = {
+          id: CartId,
+          img: img,
+          text: text,
+          title: title,
+          price: price,
+          old_price: old_price,
+          skit: skit,
+        };
+        const cards = [...shop, obj];
+        localStorage.setItem("shop", JSON.stringify(cards));
+        toast.success("Add Cart");
+      }
     }
   };
 

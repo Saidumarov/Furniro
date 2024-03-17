@@ -1,0 +1,104 @@
+.carausel {
+  width: 100%;
+  height: 670px;
+  background-color: rgb(252, 248, 242);
+  position: relative;
+  margin-bottom: 100px;
+
+  .carausel_w {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    .carausel_left {
+      width: 35%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      h2 {
+        font-size: 35px;
+        color: rgb(59, 59, 59);
+      }
+      p {
+        padding-top: 10px;
+      }
+      button {
+        width: 176px;
+        height: 48px;
+        background-color: rgba(184, 142, 47, 1);
+        color: white;
+        font-family: Poppins;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    }
+    .carausel_right {
+      width: 65%;
+      height: 100%;
+      //   background-color: red;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .carausel {
+    height: 1200px;
+    .carausel_w {
+      flex-wrap: wrap;
+      .carausel_left {
+        width: 100%;
+        justify-content: center;
+        padding-top: 50px;
+      }
+      .carausel_right {
+        width: 100%;
+        position: relative;
+        margin-top: 0px;
+        height: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .carausel {
+    .carausel_w {
+      .carausel_right {
+        width: 60%;
+      }
+    }
+  }
+}
+@media screen and (min-width: 2200px) {
+  .carausel {
+    .carausel_w {
+      .carausel_right {
+        width: 58%;
+      }
+    }
+  }
+}
+@media screen and (min-width: 2500px) {
+  .carausel {
+    .carausel_w {
+      .carausel_right {
+        width: 55%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 4000px) {
+  .carausel {
+    .carausel_w {
+      .carausel_right {
+        width: 54%;
+      }
+    }
+  }
+}
