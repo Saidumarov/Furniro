@@ -13,6 +13,9 @@ const ShopComp = () => {
   const itemsPerPage = 12;
   const [grup, setGrup] = useState("all");
   const [orginal, setorginal] = useState([]);
+  const [active, setactive] = useState(false);
+  const [filter, setFilter] = useState("all");
+
   useEffect(() => {
     const fetchData = async () => {
       await axios.get("http://localhost:3000/data").then((res) => {
@@ -43,14 +46,27 @@ const ShopComp = () => {
       setCurrentPage(savedPage);
     }
   }, []);
-
   const handleChange = (event) => {
     setGrup(event.target.value);
     let value = event.target.value;
-    let newperson = orginal?.filter((el) => {
-      return value === "all" ? el : el?.grup === value;
+    let sortedData = [...orginal]; // orginal ma'lumotlarning bir nusxasini olamiz
+    if (value === "expensive") {
+      sortedData.sort((a, b) => b.price - a.price);
+    } else if (value === "cheap") {
+      sortedData.sort((a, b) => a.price - b.price);
+    }
+    setData(sortedData);
+  };
+
+  // filter
+
+  const hendelFilter = (event) => {
+    let value = event.target.value;
+    setFilter(value);
+    let filteredData = orginal?.filter((el) => {
+      return value === "all" ? el : el?.category === value;
     });
-    setData(newperson);
+    setData(filteredData); // Filtrlangan ma'lumotlarni saqlash
   };
 
   return (
@@ -78,11 +94,19 @@ const ShopComp = () => {
       <div className="filter_shop">
         <div className="container">
           <div className="filter_left">
-            <img src={img} alt="" />
+            <img src={img} alt="" onClick={() => setactive(!active)} />
             <img src={img1} alt="" />
             <img src={img2} alt="" />
             <p className="p"></p>
             <p className="text">Showing 1–16 of 32 results</p>
+          </div>
+          <div className={`filter_product ${active ? "active" : ""}`}>
+            <select className="in1" value={filter} onChange={hendelFilter}>
+              <option value="all">All</option>
+              <option value="desk">Desk</option>
+              <option value="chair">Chair</option>
+              <option value="beds">Beds </option>
+            </select>
           </div>
           <div className="filter_right">
             <p className="show">Show</p>
@@ -94,13 +118,11 @@ const ShopComp = () => {
               required
             />
             <p className="sort">Short by</p>
-            <div class="custom-select" style={{ width: "200px" }}>
-              <select value={grup} onChange={handleChange}>
-                <option value="all">Default</option>
-                <option value="expensive">Expensive</option>
-                <option value="cheap">Cheap </option>
-              </select>
-            </div>
+            <select value={grup} onChange={handleChange} className="in1">
+              <option value="all">Default</option>
+              <option value="expensive">Expensive</option>
+              <option value="cheap">Cheap </option>
+            </select>
           </div>
         </div>
       </div>
