@@ -1,0 +1,123 @@
+.shopComp {
+  width: 100%;
+  height: 316px;
+  background-image: url("../../assets/Rectangle 1 (1).png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    text-align: center;
+    padding-top: 100px;
+    font-size: 35px;
+  }
+  .text {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    gap: 5px;
+    padding-top: 10px;
+    span {
+      padding-top: 5px;
+    }
+  }
+}
+
+.filter_shop {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 50px;
+  background-color: rgb(250, 242, 232);
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filter_left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .p {
+      width: 2.8px;
+      height: 40%;
+      background-color: rgba(0, 0, 0, 0.55);
+      border-radius: 8px;
+    }
+    .text {
+      font-family: Poppins;
+    }
+  }
+  .filter_right {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    .show {
+      font-size: 18px;
+    }
+    .in {
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      text-align: center;
+      margin-left: 10px;
+    }
+    .sort {
+      font-size: 18px;
+      padding-left: 20px;
+    }
+    .in1 {
+      width: 140px;
+      height: 40px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      text-align: center;
+      margin-left: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1215px) {
+  .filter_shop {
+    .container {
+      .filter_right {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .filter_shop {
+    .container {
+      .filter_right {
+        width: 50%;
+        justify-content: right;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .filter_shop {
+    height: auto;
+    padding-bottom: 30px;
+    .container {
+      flex-wrap: wrap;
+      .filter_right {
+        width: 100%;
+        justify-content: center;
+      }
+      .filter_left {
+        width: 100%;
+        padding-bottom: 20px;
+        padding-top: 30px;
+        justify-content: center;
+      }
+    }
+  }
+}

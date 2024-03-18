@@ -91,12 +91,24 @@
       }
       .imgs_left {
         width: 75%;
+        height: 100%;
         img:nth-child(2) {
           width: 80%;
           height: 310px;
         }
         img:nth-child(1) {
           width: 18%;
+        }
+        .imgs_l {
+          gap: 5px;
+          img:nth-child(1) {
+            width: 30%;
+            height: 300px;
+          }
+          img:nth-child(2) {
+            width: 70%;
+            height: 210px;
+          }
         }
       }
       .imgs_cen {

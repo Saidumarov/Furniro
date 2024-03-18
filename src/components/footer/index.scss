@@ -1,23 +1,137 @@
 footer {
   width: 100%;
-  background-color: red;
-  height: 500px;
+  border-top: 2px solid rgba(0, 0, 0, 0.416);
+  height: 400px;
+  padding-left: 50px;
+  padding-top: 70px;
   .footer_w {
     display: flex;
     .footer_one {
       width: 30%;
+      p {
+        padding-top: 50px;
+      }
     }
     .footer_two {
       width: 20%;
+      p {
+        padding-bottom: 50px;
+        font-family: Poppins;
+        opacity: 0.8;
+      }
+      a {
+        display: block;
+        color: black;
+        font-family: Poppins;
+        padding-top: 10px;
+      }
     }
     .footer_three {
       width: 20%;
+      .h {
+        opacity: 0.8;
+        padding-top: 0;
+        padding-bottom: 50px;
+      }
+      p {
+        padding-top: 10px;
+      }
     }
     .footer_four {
       width: 20%;
+      p {
+        padding-bottom: 50px;
+        font-family: Poppins;
+        opacity: 0.8;
+      }
+      .from {
+        display: flex;
+        input {
+          height: 30px;
+          border: none;
+          font-family: Poppins;
+          outline: none;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.511);
+        }
+        button {
+          border: none;
+          margin-left: 10px;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.511);
+          background-color: white;
+          cursor: pointer;
+        }
+      }
     }
     .footer_fief {
       width: 20%;
+    }
+  }
+  .footer_fief {
+    width: 100%;
+    border-top: 2px solid rgba(0, 0, 0, 0.416);
+    margin-top: 30px;
+    p {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 940px) {
+  footer {
+    .footer_w {
+      flex-wrap: wrap;
+      .footer_one {
+        width: 50%;
+      }
+      .footer_two {
+        width: 50%;
+      }
+      .footer_three {
+        width: 50%;
+      }
+      .footer_four {
+        width: 50%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 570px) {
+  footer {
+    .footer_w {
+      justify-content: center;
+      flex-wrap: wrap;
+      .footer_one {
+        width: 100%;
+        text-align: center;
+      }
+      .footer_two {
+        width: 100%;
+        text-align: center;
+        p {
+          padding-top: 30px;
+        }
+      }
+      .footer_three {
+        width: 100%;
+        text-align: center;
+        .h {
+          padding-top: 30px;
+        }
+      }
+      .footer_four {
+        width: 100%;
+        text-align: center;
+        p {
+          padding-top: 30px;
+        }
+        .from {
+          margin: 0 auto;
+          justify-content: center;
+        }
+      }
+    }
+    .footer_fief {
+      text-align: center;
     }
   }
 }

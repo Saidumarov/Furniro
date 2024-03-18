@@ -7,6 +7,7 @@ import Products from "./products";
 import Footercomp from "./footercomp";
 import Carousel from "./carousel";
 import Browse from "./browse";
+import ShopComp from "./shopComp";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   Footercomp,
   Carousel,
   Browse,
+  ShopComp,
 };

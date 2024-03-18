@@ -3,8 +3,10 @@ import "./index.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 import Cart from "../cart";
+import { useNavigate } from "react-router-dom";
 const Products = () => {
   const [data, setData] = useState([]);
+  const naveget = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       await axios.get("http://localhost:3000/data").then((res) => {
@@ -24,7 +26,9 @@ const Products = () => {
               <Cart key={i} {...el} />
             ))}
           </div>
-          <button className="product_btn"> Show More</button>
+          <button className="product_btn" onClick={() => naveget("/shop")}>
+            Show More
+          </button>
         </div>
       </section>
     </>
