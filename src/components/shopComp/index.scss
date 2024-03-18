@@ -136,11 +136,15 @@
   .filter_shop {
     height: auto;
     padding-bottom: 30px;
+    .filter_product {
+      margin-top: -20px;
+    }
     .container {
       flex-wrap: wrap;
       .filter_right {
         width: 100%;
         justify-content: center;
+        margin-top: 30px;
       }
       .filter_left {
         width: 100%;
