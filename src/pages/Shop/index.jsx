@@ -1,9 +1,10 @@
+import React from "react";
 import ShopComp from "../../components/shopComp";
 
-const Shop = () => {
+const Shop = ({ searchValue, handelSearch }) => {
   return (
     <>
-      <ShopComp />
+      <ShopComp searchValue={searchValue} handelSearch={handelSearch} />
     </>
   );
 };

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Footercomp from "../footercomp";
 import "./index";
-const ShopComp = () => {
+const ShopComp = ({ searchValue, handelSearch }) => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -68,6 +68,18 @@ const ShopComp = () => {
     });
     setData(filteredData); // Filtrlangan ma'lumotlarni saqlash
   };
+
+  // search
+  useEffect(() => {
+    let search = orginal?.filter((el) => {
+      return (
+        el?.title?.toLowerCase().includes(searchValue) ||
+        el?.text?.toLowerCase().includes(searchValue) ||
+        el?.category?.toLowerCase().includes(searchValue)
+      );
+    });
+    setData(search);
+  }, [searchValue]);
 
   return (
     <>

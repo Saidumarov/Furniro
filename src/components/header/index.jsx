@@ -4,16 +4,19 @@ import user from "../../assets/mdi_account-alert-outline.png";
 import search from "../../assets/akar-icons_search.png";
 import like from "../../assets/akar-icons_heart.png";
 import shop from "../../assets/ant-design_shopping-cart-outlined.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import { useEffect, useState } from "react";
 import Headroom from "react-headroom";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Header = () => {
+const Header = ({ handelSearch }) => {
   const [active, setactive] = useState(false);
   const [length, setLength] = useState(0);
+  const [activ, setactiv] = useState(false);
+
+  const naviget = useNavigate();
   useEffect(() => {
     const intervalId = setInterval(() => {
       const shopl = JSON.parse(localStorage.getItem("shop"));
@@ -24,6 +27,15 @@ const Header = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const Search = () => {
+    setactiv(!activ);
+    naviget("/shop");
+  };
+
+  const handleChange = (e) => {
+    let value = e.target.value.toLowerCase();
+    handelSearch(value);
+  };
   return (
     <>
       <ToastContainer
@@ -47,7 +59,10 @@ const Header = () => {
               <div className="header_one">
                 <img src={header} alt="" />
               </div>
-              <div className={`heeader_two ${active ? "active" : ""}`}>
+              <div
+                className={`heeader_two ${active ? "active" : ""}`}
+                id={`${activ ? "active" : ""}`}
+              >
                 <div className="x" onClick={() => setactive(!active)}>
                   <GrClose />
                 </div>
@@ -66,7 +81,14 @@ const Header = () => {
               </div>
               <div className="header_three">
                 <img src={user} alt="" className="user" />
-                <img src={search} alt="" />
+                <div className={`search ${activ ? "active" : ""}`}>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    onChange={handleChange}
+                  />
+                  <img src={search} alt="" onClick={Search} />
+                </div>
                 <img src={like} alt="" className="like" />
                 <span className="cart">
                   <span className="count"> {length} </span>
