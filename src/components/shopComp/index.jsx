@@ -6,16 +6,18 @@ import Cart from "../cart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footercomp from "../footercomp";
-
+import "./index";
 const ShopComp = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-
+  const [grup, setGrup] = useState("all");
+  const [orginal, setorginal] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       await axios.get("http://localhost:3000/data").then((res) => {
         setData(res?.data);
+        setorginal(res?.data);
       });
     };
     fetchData();
@@ -41,6 +43,15 @@ const ShopComp = () => {
       setCurrentPage(savedPage);
     }
   }, []);
+
+  const handleChange = (event) => {
+    setGrup(event.target.value);
+    let value = event.target.value;
+    let newperson = orginal?.filter((el) => {
+      return value === "all" ? el : el?.grup === value;
+    });
+    setData(newperson);
+  };
 
   return (
     <>
@@ -83,12 +94,13 @@ const ShopComp = () => {
               required
             />
             <p className="sort">Short by</p>
-            <input
-              type="tel"
-              maxLength="10"
-              placeholder="Default"
-              className="in1"
-            />
+            <div class="custom-select" style={{ width: "200px" }}>
+              <select value={grup} onChange={handleChange}>
+                <option value="all">Default</option>
+                <option value="expensive">Expensive</option>
+                <option value="cheap">Cheap </option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
