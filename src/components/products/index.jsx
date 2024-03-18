@@ -22,9 +22,12 @@ const Products = () => {
         <div className="container">
           <h2>Our Products</h2>
           <div className="products_w">
-            {data?.slice(0.8)?.map((el, i) => (
-              <Cart key={i} {...el} />
-            ))}
+            {data
+              ?.slice(0, 8)
+              .slice(0.8)
+              ?.map((el, i) => (
+                <Cart key={i} {...el} />
+              ))}
           </div>
           <button className="product_btn" onClick={() => naveget("/shop")}>
             Show More

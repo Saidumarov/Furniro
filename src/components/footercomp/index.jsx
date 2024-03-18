@@ -10,7 +10,7 @@ const Footercomp = () => {
         <div className="container">
           <div className="fot_cart">
             <img src={img} alt="" />
-            <div>s
+            <div>
               <h4>High Quality</h4>
               <p>crafted from top materials</p>
             </div>

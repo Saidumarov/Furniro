@@ -121,3 +121,42 @@
     }
   }
 }
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+  gap: 10px;
+}
+.page-item {
+  width: 100px;
+  height: 60px;
+  background-color: rgb(250, 242, 232);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.page-item1 {
+  width: 70px;
+  height: 60px;
+  background-color: rgb(250, 242, 232);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 20px 0 20px;
+  font-size: 20px;
+}
+
+.page-link {
+  width: 70px !important;
+  height: 60px;
+}
+
+.page-item1.active {
+  background-color: rgb(184, 143, 48);
+  color: white;
+}

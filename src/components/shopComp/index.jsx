@@ -6,8 +6,12 @@ import Cart from "../cart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footercomp from "../footercomp";
+
 const ShopComp = () => {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
   useEffect(() => {
     const fetchData = async () => {
       await axios.get("http://localhost:3000/data").then((res) => {
@@ -16,6 +20,28 @@ const ShopComp = () => {
     };
     fetchData();
   }, []);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+
+    // Sahifani localStorage ga saqlash
+    localStorage.setItem("currentPage", JSON.stringify(pageNumber));
+  };
+
+  useEffect(() => {
+    // localStorage dan currentPage qiymatini olish
+    const savedPage = JSON.parse(localStorage.getItem("currentPage"));
+
+    // Agar saqlangan qiymat mavjud bo'lsa uni o'rnating
+    if (savedPage) {
+      setCurrentPage(savedPage);
+    }
+  }, []);
+
   return (
     <>
       <section className="shopComp">
@@ -66,14 +92,52 @@ const ShopComp = () => {
           </div>
         </div>
       </div>
-      <div className="products">
+      <div className="products" style={{ paddingBottom: "0" }}>
         <div className="container">
           <div className="products_w">
-            {data?.map((el, i) => (
+            {currentItems?.map((el, i) => (
               <Cart key={i} {...el} />
             ))}
           </div>
         </div>
+      </div>
+      <div className="page">
+        <nav aria-label="Page navigation example">
+          <ul className="pagination">
+            <button
+              style={{ display: currentPage <= 1 && "none" }}
+              className="page-item"
+              id="page"
+              disabled={currentPage <= 1}
+              onClick={() => paginate(currentPage - 1)}
+            >
+              Prev
+            </button>
+
+            {Array.from(
+              { length: Math.ceil(data.length / itemsPerPage) },
+              (_, i) => (
+                <button
+                  key={i}
+                  className={`page-item1 ${
+                    currentPage === i + 1 ? "active" : ""
+                  }`}
+                  onClick={() => paginate(i + 1)}
+                >
+                  <span className="page-link">{i + 1}</span>
+                </button>
+              )
+            )}
+
+            <button
+              className="page-item"
+              onClick={() => paginate(currentPage + 1)}
+              disabled={currentPage === Math.ceil(data.length / itemsPerPage)}
+            >
+              Next
+            </button>
+          </ul>
+        </nav>
       </div>
       <Footercomp />
     </>

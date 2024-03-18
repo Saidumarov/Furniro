@@ -44,10 +44,13 @@ const Cart = ({ id, price, old_price, title, text, skit, img }) => {
         };
         const cards = [...shop, obj];
         localStorage.setItem("shop", JSON.stringify(cards));
-        toast.success("Add Cart");
+        toast.success("Added to cart");
       }
     }
   };
+
+  const pirc = price?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const old = old_price?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   return (
     <div className="cart_w">
@@ -87,9 +90,9 @@ const Cart = ({ id, price, old_price, title, text, skit, img }) => {
         <h4>{title}</h4>
         <p>{text}</p>
         <div className="pric">
-          <p>Rp{price}</p>
+          <p>Rp{pirc}</p>
           <p>
-            <s>Rp{old_price}</s>
+            <s>Rp{old}</s>
           </p>
         </div>
       </div>
