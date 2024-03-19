@@ -5,23 +5,28 @@ import likePng from "../../assets/Like.png";
 import Like, { LikeL } from "../../constants";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({ id, price, old_price, title, text, skit, img }) => {
   const [liked, setLiked] = useState(false);
-
+  const naviget = useNavigate();
   useEffect(() => {
     const storedLikes = JSON.parse(localStorage.getItem("likes")) || {};
     setLiked(storedLikes[id] || false);
   }, [id]);
 
-  const handleLike = () => {
+  const handleLike = (e) => {
+    e.stopPropagation();
+
     const updatedLikes = { ...JSON.parse(localStorage.getItem("likes")) };
     updatedLikes[id] = true;
     localStorage.setItem("likes", JSON.stringify(updatedLikes));
     setLiked(true);
   };
 
-  const handleUnlike = () => {
+  const handleUnlike = (e) => {
+    e.stopPropagation();
+
     const updatedLikes = { ...JSON.parse(localStorage.getItem("likes")) };
     updatedLikes[id] = false;
     localStorage.setItem("likes", JSON.stringify(updatedLikes));
@@ -41,10 +46,12 @@ const Cart = ({ id, price, old_price, title, text, skit, img }) => {
           price: price,
           old_price: old_price,
           skit: skit,
+          count: 1,
+          subtotal: price,
         };
         const cards = [...shop, obj];
         localStorage.setItem("shop", JSON.stringify(cards));
-        toast.success("Added to cart");
+        toast.success("Product saved successfully");
       }
     }
   };
@@ -52,14 +59,28 @@ const Cart = ({ id, price, old_price, title, text, skit, img }) => {
   const pirc = price?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   const old = old_price?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+  const clik = (id) => {
+    naviget(`/product/${id}`);
+  };
+
+  const babling = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <div className="cart_w">
+    <div className="cart_w" onClick={() => clik(id)}>
       <div className="card_hover">
-        <button
-          onClick={() => addCart(id, img, text, title, price, old_price, skit)}
+        <span
+          style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          onClick={babling}
         >
-          Add to cart
-        </button>
+          <button
+            onClick={() =>
+              addCart(id, img, text, title, price, old_price, skit)
+            }
+          >
+            Add to cart
+          </button>
+        </span>
         <div className="hover">
           <img src={share} alt="" />
           <img src={comp} alt="" />

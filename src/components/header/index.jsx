@@ -4,7 +4,7 @@ import user from "../../assets/mdi_account-alert-outline.png";
 import search from "../../assets/akar-icons_search.png";
 import like from "../../assets/akar-icons_heart.png";
 import shop from "../../assets/ant-design_shopping-cart-outlined.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import { useEffect, useState } from "react";
@@ -57,7 +57,9 @@ const Header = ({ handelSearch }) => {
           <div className="container">
             <div className="header">
               <div className="header_one">
-                <img src={header} alt="" />
+                <Link to="/">
+                  <img src={header} alt="" />
+                </Link>
               </div>
               <div
                 className={`heeader_two ${active ? "active" : ""}`}
@@ -90,7 +92,7 @@ const Header = ({ handelSearch }) => {
                   <img src={search} alt="" onClick={Search} />
                 </div>
                 <img src={like} alt="" className="like" />
-                <span className="cart">
+                <span className="cart" onClick={() => naviget("/cart")}>
                   <span className="count"> {length} </span>
                   <img src={shop} alt="" />
                 </span>

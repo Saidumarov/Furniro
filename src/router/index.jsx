@@ -3,6 +3,8 @@ import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import { Footer, Header } from "../components";
 import { useState } from "react";
+import Detailes from "../pages/Detailes";
+import CartPage from "../pages/Cart";
 
 const Router = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -20,6 +22,8 @@ const Router = () => {
             <Shop searchValue={searchValue} handelSearch={handleSearchChange} />
           }
         />
+        <Route path="/product/:id" element={<Detailes />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </>
